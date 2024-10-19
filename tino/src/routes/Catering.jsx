@@ -31,7 +31,7 @@ export default function Catering() {
             <div>
               <h2>Pay By Consumption</h2>
               <p>Pay afterwards and get unlimited coffee for all attendees</p>
-              <button>Reserve</button>
+              {/*<button>Reserve</button>*/}
             </div>
             <div className=''>
               <h4>@derekGrata</h4>
@@ -49,7 +49,7 @@ export default function Catering() {
             <div>
               <h2>Pay Per Ticket</h2>
               <p>Pay beforehand by the amount of attendees.</p>
-              <button>Reserve</button>
+              {/*<button>Reserve</button>*/}
             </div>
             <div className=''>
               <h4>@EvanHeights</h4>
@@ -67,7 +67,7 @@ export default function Catering() {
             <div>
               <h2>Free Service</h2>
               <p>Attendees pay for their own coffee.</p>
-              <button>Reserve</button>
+              {/*<button>Reserve</button>*/}
             </div>
             <div className=''>
               <h4>@EStires</h4>
