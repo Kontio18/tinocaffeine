@@ -1,0 +1,249 @@
+:root {
+  --red: #F42E59;
+  --light-gray: #eee;
+  --dark-gray: #222;
+  --brown: #FFCC7F;
+  --trans-dark-grey: rgba(34,34,34,.8);
+  --shadow: 2px 2px 2px 2px rgba(0,0,0,.1);
+  --webkit-shadow: 2px 2px 2px 2px rgba(0,0,0,.1);
+}
+a:not(.no-hover):hover, button:not(.no-hover):hover {
+  cursor: pointer;
+  opacity: .8;
+  transition: .3s;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: roboto;
+  padding-top: 45px;
+}
+header {
+  overflow: hidden;
+  background-color: #fff;
+  -webkit-box-shadow: var(--webkit-shadow);
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+p {
+  line-height: 1.5;
+}
+input {
+  height: 18px;
+  border: none;
+  border-radius: 2px;
+}
+header h1 {
+  margin: 0;
+}
+header * {
+  vertical-align: top;
+}
+h1 {
+  font-size: 1.75rem;
+}
+h2 {
+  text-decoration: underline;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+h4 {
+  margin: 10px 0;
+}
+p.light {
+  font-weight: 300;
+  text-shadow: 0 0 2px rgba(0,0,0,.1);
+  letter-spacing: .5px;
+}
+div#hero {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 680px;
+  padding: 0;
+  position: relative;
+}
+.half-parent-div {
+  white-space: nowrap;
+}
+.half-child-div {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+}
+.half-child-div:nth-of-type(2) {
+  text-align: right;
+}
+.hero-caption {
+  background-color: var(--trans-dark-grey);
+  color: #fff;
+  position: absolute;
+  bottom: 10%;
+  padding: 15px;
+  width: 77%;
+}
+h2.big {
+  font-size: 1.8rem;
+}
+p.big {
+  font-weight: 300;
+  margin: 10px 10px 10px 0;
+  line-height: 1.5;
+  font-size: 1.4rem;
+}
+.hero-caption button {
+  font-size: 1.2rem;
+}
+button,
+a.button {
+  display: inline-block;
+  background-color: var(--red);
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 7px;
+  border: none;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+button.full {
+  margin: 10px 0;
+  width: 100%;
+}
+button:hover,
+a:hover,
+select:hover,
+input:hover {
+  cursor: pointer;
+}
+.disappears-on-mobile {
+  display: none;
+}
+.newsletter-sign-up-container h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.newsletter-sign-up-container input {
+  background-color: rgba(255,255,255,.5);
+  border: solid 1px #fff;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  height: 25px;
+  margin-right: 10px;
+}
+.newsletter-sign-up-container button {
+  height: 25px;
+}
+.negative {
+  background-color: var(--trans-dark-grey);
+  color: #fff;
+}
+div.blend-data-inputs {
+  white-space: nowrap;
+}
+div.blend-data-inputs > div {
+  margin: 15px 0 10px 0 ;
+}
+div.blend-data-inputs h5 {
+  font-weight: 300;
+  margin: 5px 0;
+}
+div.blend-data-inputs select {
+  border: solid 1px #222;
+  width: 80%;
+}
+.y-split-parent > .blend-qty-incrementer,
+.blend-qty-incrementer {
+  text-align: center;
+}
+div.blend-qty-incrementer > span {
+  background-color: #222;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  padding-top: 2px;
+  user-select: none;
+  text-align: center;
+  box-shadow: 1px 1px 1px 2px rgba(0,0,0,.1);
+  -webkit-box-shadow: 1px 1px 1px 2px rgba(0,0,0,.1);
+}
+.blend-qty-incrementer > span:hover {
+  cursor: pointer;
+}
+.blend-qty-incrementer > span span {
+  display: inline;
+  vertical-align: bottom;
+}
+span.blend-qty-holder {
+  user-select: none;
+}
+div.inputs-line {
+  width: 100px;
+  text-align: left;
+}
+div.blend-data-input-wght div.inputs-line > div {
+  margin: 0;
+  width: unset;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+div.inputs-line > div:nth-of-type(2){
+  text-align: center;
+}
+.dark {
+  background-color: #222;
+  color:  #fff;
+}
+.light-text {
+  font-weight: 300;
+}
+div.map iframe {
+  width: 100%;
+  height: 250px;
+}
+div.related-blends * {
+  color: #fff;
+}
+ul.rating-stars {
+  text-align: left;
+}
+ul.rating-stars li {
+  margin: 2px 0;
+}
+ul.rating-stars .full-star {
+  color: var(--red);
+}
+@media screen and (min-width: 750px) {
+  .hero-caption {
+    max-width: 450px;
+    position: relative;
+    left: 10%;
+    top: 50%;
+  }
+  .vert-half-parent {
+    white-space: nowrap;
+  }
+  .vert-half {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+  .disappears-on-mobile {
+    display: block;
+  }
+}
+@media screen and (min-width: 1300px) {
+  div#hero {
+    background-size: contain;
+    background-repeat: repeat-x;
+  }
+}  

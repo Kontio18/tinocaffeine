@@ -1,0 +1,20 @@
+.solo-newsletter-sign-up {
+	background-color: #ccc;
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+}
+.solo-newsletter-sign-up .newsletter-sign-up-container {
+	padding: 10px 20px;
+	display: inline-block;
+	margin: 50px auto;
+	text-align: left;
+	border-radius: 2px;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--webkit-shadow);
+}
+@media screen and (min-width: 700px){
+	.solo-newsletter-sign-up .newsletter-sign-up-container {
+		padding: 10px 40px;
+	}
+}

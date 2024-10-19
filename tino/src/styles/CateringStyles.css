@@ -1,0 +1,22 @@
+main.catering-main {
+	padding: 12px;
+}
+.catering div#hero {
+	background-image: url('../images/catering/catering-hero.gif');
+	height: 500px;
+}
+.catering .hero-caption {
+  left: 10%;
+  top: 10%;
+}
+ul.catering-options {
+}
+ul.catering-options > li {
+	padding: 10px;
+}
+ul.catering-options h4 {
+	margin: 3px 0;
+}
+ul.catering-options h5.rating-quote {
+	margin: 4px 0;
+}

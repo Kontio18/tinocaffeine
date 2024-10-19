@@ -1,0 +1,32 @@
+#follow-instagram {
+  background-image: url('./../images/follow-instagram/bg.jpg');
+}
+#follow-instagram .container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding-bottom: 20px;
+}
+.social-media-box-grid {
+  white-space: nowrap;
+}
+.social-media-box-grid li {
+  display: inline-block;
+  width: 33%;
+  height: 25px;
+  padding: 20px;
+}
+.social-media-box-grid li img {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+.follow-instagram-left-half-container {
+  padding: 20px;
+  padding-bottom: 0;
+}
+.follow-instagram-left-half-container p {
+  margin: 10px 0;
+}
+.follow-instagram-right-half-container {
+
+}

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'coves';
+  src: local('coves-bold'), url(./fonts/CovesBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'coves';
+  src: local('coves-light'), url(./fonts/CovesLight.woff2) format('woff2');
+}

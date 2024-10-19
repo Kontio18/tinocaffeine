@@ -1,0 +1,135 @@
+.y-split {
+  margin: 10px auto;
+}
+.mobile-y-split-parent {
+  white-space: nowrap;
+  text-align: center;
+}
+.mobile-y-split-parent * {
+  white-space: normal;
+}
+.y-split-parent {
+  white-space: nowrap;
+  text-align: center;
+}
+.y-split-parent > * {
+  text-align: left;
+}
+.mobile-y-split {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  /*border: solid 1px red;*/
+}
+.mobile-y-split.half {
+  width: 50%;
+}
+.mobile-y-split.third {
+  width: 33.33%;
+}
+.mobile-y-split.two-thirds {
+  width: 66.66%;
+}
+.mobile-y-split.quarter {
+  width: 25%;
+}
+.mobile-y-split.fifth {
+  width: 20%;
+}
+.mobile-y-split.sixth {
+  width: 16.7%;
+}
+.mobile-y-split.seventh {
+  width: 14.28%;
+}
+.mobile-y-split.eighth {
+  width: 12.5%;
+}
+.mobile-y-split.tenth {
+  width: 10%;
+}
+@media screen and (min-width: 700px){
+  span.inline > * {
+    display: inline;
+    margin-right: 15px;
+  }
+  .mobile-y-split.half {
+    width: 100%;
+  }
+  .mobile-y-split.third {
+    width: 100%;
+  }
+  .mobile-y-split.two-thirds {
+    width: 100%;
+  }
+  .mobile-y-split.quarter {
+    width: 100%;
+  }
+  .mobile-y-split.fifth {
+    width: 100%;
+  }
+  .mobile-y-split.sixth {
+    width: 100%;
+  }
+  .y-split-parent {
+    white-space: nowrap;
+    text-align: center;
+  }
+  .y-split-parent > * {
+    text-align: left;
+  }
+  .y-split {
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    /*border: solid 1px red;*/
+  }
+  .y-split.half {
+    width: 50%;
+  }
+  .y-split.third {
+    width: 33.33%;
+  }
+  .y-split.two-thirds {
+    width: 66.66%;
+  }
+  .y-split.quarter {
+    width: 25%;
+  }
+  .y-split.fifth {
+    width: 20%;
+  }
+  .y-split.two-fifths {
+    width: 40%;
+  }
+  .y-split.three-tenths {
+    width: 30%;
+  }
+  .y-split.nine-twentieths {
+    width: 45%;
+  }
+  .y-split.three-fifths {
+    width: 60%;
+  }
+  .y-split.four-fifths {
+    width: 80%;
+  }
+  .y-split.sixth {
+    width: 16.7%;
+  }
+  .y-split.eighth {
+    width: 12.5%;
+  }
+  .y-split.tenth {
+    width: 10%;
+  }
+  .y-split.twelfth {
+    width: 8.3%;
+  }
+  .y-split.fourteenth {
+    width: 7.1%;
+  }
+  .y-split.sixteenth {
+    width: 6.25%;
+  }
+}

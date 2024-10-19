@@ -1,0 +1,27 @@
+#on-the-go {
+  background-image: url('./../images/home-page/on-the-go-background.jpg');
+  background-size: cover;
+  white-space: nowrap;
+  color: #fff;
+}
+#on-the-go div img {
+  height: 250px;
+}
+#on-the-go > div {
+  vertical-align: middle;
+  white-space: normal;
+  padding: 15px;
+  text-align: center;
+}
+#on-the-go > div:first-of-type {
+}
+#on-the-go > div:nth-of-type(2) {
+}
+/*#on-the-go h2 {
+  text-decoration: none;
+  font-size: 1.5rem;
+}*/
+#on-the-go p { 
+  font-size: 1.2rem;
+  max-width: 450px;
+}

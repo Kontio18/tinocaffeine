@@ -1,0 +1,54 @@
+.blend-data {
+	padding: 5px;
+}
+.blend-data div {
+/*	border: solid 1px red;
+*/}
+div.blend-data-wrapper {
+	max-width: 900px;
+	margin: 10px auto;
+}
+div.blend-imgs-main-display-holder {
+	text-align: center;
+}
+div.blend-imgs-main-display-holder > img {
+	width: 100%;
+	border-radius: 4px;
+	-webkit-box-shadow: var(--webkit-shadow);
+	box-shadow: var(--shadow);
+}
+div.blend-imgs-wrapper {
+	max-width: 400px;
+	overflow: hidden;
+	width: 90%;
+	margin: 5px auto;
+}
+ul.blend-imgs-list {
+	text-align: center;
+}
+ul.blend-imgs-list > li {
+	display: inline-block;
+	border-radius: 3px;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin: 3px 7px;
+	-webkit-box-shadow: var(--webkit-shadow);
+	box-shadow: var(--shadow);
+}
+ul.blend-imgs-list > li:hover {
+	cursor: pointer;
+}
+ul.blend-imgs-list > li img {
+	height: 100%;
+}
+div.blend-text {
+	padding: 0 5px;
+}
+p.blend-description {
+	margin: 10px 0;
+	white-space: normal;
+}
+@media screen and (min-width: 500px){
+
+}

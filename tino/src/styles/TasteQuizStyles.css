@@ -1,0 +1,127 @@
+.taste-quiz {
+  background-color: rgb(72,72,72,.03);
+  margin: 20px auto;
+}
+.taste-quiz-cont {
+  max-width: 1100px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.taste-quiz-cont div {
+/*  border: solid 1px red;
+*/}
+.taste-quiz-form {
+  margin: 15px 0;
+}
+.taste-quiz-left-img {
+  height: 100%;
+  max-height: 250px;
+}
+.taste-quiz-img-left-cont {
+  display: none;
+}
+.taste-quiz-label {
+  display: block;
+  margin: 15px 0;
+}
+.taste-quiz-divider {
+  display: none;
+}
+.taste-quiz-label h5 {
+  font-weight: 300;
+  text-shadow: -1px 1px 2px rgba(0,0,0,.2);
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.8px 0;
+  background-color: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2.1px;
+  cursor: pointer;
+  background: #ffd69f;
+  border-radius: 0.5px;
+  border: 0.1px solid #ffd69f;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 2.1px;
+  cursor: pointer;
+  background: #ffd69f;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: #333;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1.1px;
+  cursor: pointer;
+  background: #ffd69f;
+  border-radius: 0.5px;
+  border: 0.1px solid #ffd69f;
+}
+input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: #333;
+  cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+}
+input[type=range]::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: #333;
+  cursor: pointer;
+  height: 8.4px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+@media screen and (min-width: 700px){
+  .taste-quiz-img-left-cont {
+    display: inline-block;
+    overflow: hidden;
+    border-right: solid 10px rgba(72,72,72,.0);
+  }
+  .taste-quiz-img-left-cont img {
+    padding-right: 10px;
+  }
+  .taste-quiz-divider {
+    display: block;
+  }
+  .taste-quiz-label {
+    display: inline-block;
+    padding: 3px 20px 3px 0;
+    margin: 5px 0;
+  }
+}

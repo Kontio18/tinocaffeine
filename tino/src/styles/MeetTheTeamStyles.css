@@ -1,0 +1,42 @@
+div.meet-the-team-container {
+    max-width: 900px;
+    margin: 10px auto;
+}
+div.meet-the-team {
+    padding: 20px;
+}
+div.meet-the-team ul {
+    margin: 10px 0;
+    text-align: left;
+    white-space: normal;
+}
+div.meet-the-team ul > li {
+    max-width: 300px;
+    text-align: left;
+    display: inline-block;
+}
+div.meet-the-team ul > li > div {
+    width: unset;
+}
+div.meet-the-team ul > li img {
+    width: 90%;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--webkit-shadow);
+}
+div.meet-the-team ul > li h5 {
+    background-color: #eee;
+    color: #111;
+    display: inline-block;
+    padding: 2px 5px;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 5px 0;
+    font-size: .9rem;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--webkit-shadow);
+}
+div.meet-the-team ul > li:nth-of-type(odd) h5 {
+    background-color: #222;
+    color: #fff;
+    margin: 5px 0;
+}

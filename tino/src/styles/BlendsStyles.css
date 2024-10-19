@@ -1,0 +1,120 @@
+div.blend-figures {
+	max-width: 800px;
+	margin: auto;
+	padding: 20px;
+}
+div.blend-figures h2 {
+	margin: 10px 0 0 0;
+}
+div.blend-figures a.button {
+	width: 200px;
+	font-weight: 300;
+	text-align: center;
+	display: block;
+	margin: 20px auto;
+	-webkit-box-shadow: var(--webkit-shadow);
+	box-shadow: var(--shadow);
+}
+div.blend-figures > div {
+	text-align: center;
+}
+div.blend-figure-cont {
+	display: inline-block;
+	margin: 0 auto;
+	overflow: hidden;	
+	text-align: left;
+    max-width: 325px;
+    white-space: normal;
+    text-align: center;
+}
+div.blend-figure-cont > figure {
+	text-align: left;
+}
+div.blend-figure-cont img {
+	-webkit-box-shadow: var(--webkit-shadow);
+	box-shadow: var(--shadow);
+	border-radius: 3px;
+	width: 100%;
+}
+div.blend-figure-cont h2 {
+	margin: 10px 0;
+	text-decoration: none;
+	font-weight: 300;
+}
+div.blend-figure-cont p {
+	padding: 10px;
+}
+
+div.blends-display {
+	padding: 10px;
+	background-color: #fff;
+}
+div.blend-cont {
+	background-color: rgb(72,72,72,.03);
+	box-shadow: var(--shadow);
+	-webkit-box-shadow: var(--webkit-shadow);
+}
+div.blends-display-wrapper {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+ul.blends-display .img-holder {
+	overflow: hidden;
+}
+ul.blends-display div.script {
+	text-align: left;
+	padding: 10px;
+}
+ul.blends-display {
+	text-align: left;
+}
+ul.blends-display > li h4 {
+	margin: 2px 0 5px 0;
+}
+ul.blends-display > li {
+	margin: 17px auto;
+	text-align: center;
+}
+ul.blends-display > li h5 {
+	margin: 10px auto;
+}
+ul.blends-display > li p {
+    margin: 10px auto;
+	font-size: .9rem;
+	font-weight: 300;
+}
+ul.blends-display > li h5.pricing {
+	font-weight: 400;
+	margin: 5px auto;
+}
+ul.blend-tags {
+}
+ul.blend-tags > li:first-of-type {
+	padding: 0 5px 0 0;
+}
+ul.blend-tags > li {
+	display: inline;
+	padding: 0 5px;
+	border-radius: 3px;
+	font-weight: 300;
+	font-size: .75rem;
+    text-transform: lowercase;
+}
+@media screen and (min-width: 700px){
+	ul.blends-display > li {
+	    padding: 11px;
+	}
+}	
+@media screen and (min-width: 750px){
+	div.blend-figure-cont {
+		width: 80%;
+	}
+	ul.blends-display > li {
+		margin: 10px auto 15px auto;
+	}
+	ul.blends-display .blend-cont {
+		display: inline-block;
+		width: 93%;
+	    max-width: 300px;
+	}
+}

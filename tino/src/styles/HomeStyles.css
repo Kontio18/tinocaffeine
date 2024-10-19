@@ -1,0 +1,110 @@
+.split-block-text-cont p {
+  line-height: 1.5;
+  padding: 10px;
+}
+.split-block-img-cont img {
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+.home-double-block-cont {
+  max-width: 900px;
+  margin: auto;
+}
+.home-double-block-cont > div > div {
+  max-width: 300px;
+}
+.home-double-block-cont h2,
+.home-double-block-cont p,
+.home-double-block-cont button {
+  margin: 5px 0;
+}
+.home-double-block-cont img {
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--webkit-shadow);
+}
+@media screen and (min-width: 700px){
+  .double-block-div > div > * {
+    padding: 0;
+  }
+  .double-block-div > div {
+    height: unset;
+    white-space: nowrap;
+    display: inline-block;
+    width: 50%;
+    padding: 15px;
+  }
+  .split-block-img-cont,
+  .split-block-text-cont {
+    position: relative;
+    height: unset;
+    display: inline-block;
+    background-color: unset;
+    color: #000;
+    vertical-align: top;
+    white-space: normal;
+    text-align: left;
+    overflow: hidden;
+  }
+  .split-block-img-cont {
+    width: 30%;
+    max-height: 235px;
+    max-width: 187px;
+    box-shadow: var(--shadow);
+    border-radius: 2px;
+  }
+  .split-block-text-cont {
+    width: 70%;
+  }
+  .split-block-text-cont h2 {
+    text-decoration: none;
+    border-bottom: solid 1px #222;
+    padding: 0;
+    padding-left: 15px;
+  }
+  .split-block-text-cont > p {
+    padding: 10px ;
+    padding-left: 15px;
+    line-height: 1.5;
+  }
+  .split-block-text-cont > button {
+    margin-left: 15px;
+  }
+  .split-block-img-cont img {
+    box-shadow: none;
+    border-radius: none;
+    position: relative;
+    width: unset;
+    top: unset;
+  }
+  #on-the-go {
+    text-align: center;
+  }
+  #on-the-go > div {
+    display: inline-block;
+  }
+  #on-the-go > div:first-of-type {
+
+  }
+  #on-the-go > div:nth-of-type(2) {
+    text-align: left;
+  }
+  #on-the-go p {
+    padding-left: 0;
+  }
+  .home-double-block-cont h2,
+  .home-double-block-cont p {
+      padding-left: 10px;
+  }
+  .home-double-block-cont button {
+    margin-left: 10px;
+  }
+  .home-double-block-cont > div > div {
+    max-width: unset;
+  }
+}
+@media screen and (min-width: 950px){
+  .split-block-img-cont {
+    max-height: 280px;
+  }
+}
