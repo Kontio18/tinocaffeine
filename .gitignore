@@ -1,3 +1,6 @@
 # Ignore macOS .DS_Store files
 .DS_Store
 node_modules/
+package-lock.json
+tino/package-lock.json
+build/
