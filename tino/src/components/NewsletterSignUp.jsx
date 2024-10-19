@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import NewsletterSignUpStyles from './../styles/NewsletterSignUpStyles.css';
 import axios from 'axios';
+import { backendUrl } from './../config';
 
 export default function NewsletterSignUp(){
 
@@ -13,7 +14,7 @@ export default function NewsletterSignUp(){
 
   const handleNewsletterSignUp = (e) => {
     e.preventDefault();
-    fetch('https://'+window.location.hostname+':3003/saveEmail?' + new URLSearchParams({
+    fetch(backendUrl+'/saveEmail?' + new URLSearchParams({
       address: newsletterEmailAddress,
     }))
     .then((res) => {

@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {Link, Outlet, useSearchParams, useParams} from 'react-router-dom';
+import { backendUrl } from './../config';
 
 import axios from 'axios';
 import {truncateParagraph} from './../functions';
@@ -17,11 +18,9 @@ import BlendTwo from './../images/blends/2.jpg';
 
 export default function Blends() {
   
-  const [blends, setBlends] = useState([]);
-
-
+const [blends, setBlends] = useState([]);
   useEffect(() => {
-    fetch('https://'+window.location.hostname+':3003/getBlends')
+    fetch(backendUrl+'/getBlends')
     .then((res) => res.json())
     .then((res) => setBlends(res))
   },[]);

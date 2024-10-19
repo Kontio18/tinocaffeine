@@ -1,5 +1,6 @@
 import { useState, useEffect, Component } from 'react';
 import { Link } from 'react-router-dom';
+import { backendUrl } from './../config';
 
 import FooterStyles from './../styles/FooterStyles.css';
 import SquareLogo from './../images/logo/square-logo.jpg';
@@ -22,7 +23,7 @@ function Footer(){
 
   function footerHandleNewsletterSignUp(e){
     e.preventDefault();
-    fetch('https://'+window.location.hostname+':3003/saveEmail?' + new URLSearchParams({
+    fetch(backendUrl+'/saveEmail?' + new URLSearchParams({
       address: newsletterEmailAddress,
     }))
     .then((res) => {setFooterNewsletterEmailAddressSignUpHeader('Thanks For Signing Up!')});

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, Fragment, componentDidMount } from 'react';
 import { Link, Outlet, useSearchParams, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { backendUrl } from './../config';
 
 import tinoStore from './../components/reducers/tinoStore';
 
@@ -38,7 +39,7 @@ export default function Blend() {
   };
   
   useLayoutEffect(() => {
-    fetch('https://'+window.location.hostname+':3003/getRelatedBlends?' + new URLSearchParams({
+    fetch(backendUrl+'/getRelatedBlends?' + new URLSearchParams({
       blendId: blend.blend_id,
       bitter: blend.bitter,
       vanillaLike: blend.vanillaLike,
@@ -59,7 +60,7 @@ export default function Blend() {
   
   useLayoutEffect(() => {
    function request() {
-      const fetchdata = async () => await axios.get('https://'+window.location.hostname+':3003/getBlend?blendName='+blendName)
+      const fetchdata = async () => await axios.get(backendUrl+'/getBlend?blendName='+blendName)
       const result =  fetchdata()
       result.then(res=>{
         setBlend(res.data);
