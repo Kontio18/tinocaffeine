@@ -12,11 +12,11 @@ const options = {
 };
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, '/tinocaffeine/tino/build')));
+app.use(express.static(path.join(__dirname, '/tino/build')));
 
 // Route for serving the React app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/tinocaffeine/tino/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/tino/build', 'index.html'));
 });
 
 // Start the server
