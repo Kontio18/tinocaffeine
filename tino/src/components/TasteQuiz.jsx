@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as React from 'react'
 import {Link, Outlet} from 'react-router-dom';
+import { backendUrl } from './../config';
 
 import TasteQuizStyles from './../styles/TasteQuizStyles.css';
 import NavStyles from './../styles/NavStyles.css';
@@ -33,7 +34,8 @@ export default function TasteQuiz(){
   const updateTangy = (e) => {setTangy(e.target.value)};
 
   const submitTasteQuiz = (e) => {
-    fetch('https://'+window.location.hostname+':3003/tasteQuiz?' + new URLSearchParams({
+
+    fetch(backendUrl+'/tasteQuiz?' + new URLSearchParams({
       bitter: bitter,
       vanillaLike: vanillaLike,
       fruity: fruity,

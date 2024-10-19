@@ -1,6 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import * as React from 'react'
 import {Link, Outlet} from 'react-router-dom';
+import { backendUrl } from './../config';
 
 import CommonStyles from './../styles/Common.css';
 import NavStyles from './../styles/NavStyles.css';
@@ -36,7 +37,7 @@ export default function NavBar(){
   const [navLinks, setNavLinks] = useState([]);
 
   useLayoutEffect(() => {
-    fetch('https://'+window.location.hostname+':3003/navItems')
+    fetch(backendUrl+'/navItems')
     .then((res) => res.json())
     .then((res) => setNavLinks(res.link_names))
   },[]);
