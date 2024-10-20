@@ -32,19 +32,31 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.use(cors());
 
 const emailSchema = new mongoose.Schema({email:'string'});
-
 const newsletter_email = mongoose.model('newsletter_email', emailSchema);
 
-app.get('/saveEmail', (req, res) => {
+app.get('/saveEmail', async (req, res) => {
 
-  // get email address from query string
-  let emailAddInstance = new newsletter_email({email: req.query.address})
-  
-  // insert to database
-  emailAddInstance.save();
+  try {
+    let email = req.query.address;
+    const emailInDatabase =  await newsletter_email.findOne({email:email});
+    if(emailInDatabase){
+      res.status(400).send('You\'ve already signed up!')
+    }else{
+
+      // get email address from query string
+      let emailAddInstance = new newsletter_email({email: req.query.address})
+      
+      // insert to database
+      emailAddInstance.save();
+
+      res.status(200).send('Thanks For Signing Up!');
+    }
+  }catch(err){
+    res.status(500).send('An error occurred while saving the email');
+  }
 
   // return string notifiying successful result
-  res.send('suc');
+  res.send();
 
 });
 

@@ -23,10 +23,17 @@ function Footer(){
 
   function footerHandleNewsletterSignUp(e){
     e.preventDefault();
+
     fetch(backendUrl+'/saveEmail?' + new URLSearchParams({
       address: newsletterEmailAddress,
     }))
-    .then((res) => {setFooterNewsletterEmailAddressSignUpHeader('Thanks For Signing Up!')});
+    .then((res) => {
+      res.text().then((message)=>{
+        setFooterNewsletterEmailAddressSignUpHeader(message)
+      })
+    });
+    setNewsletterEmailAddress('');
+    e.target.reset();
   }
   
   return(
@@ -55,7 +62,9 @@ function Footer(){
           </ul>
           <div className='newsletter-sign-up-container'>
             <h3>{footerNewsletterEmailAddressSignUpHeader}</h3>
-            <input type='text' name='footer-newsletter-email' className='footer' onChange={(e)=>{footerHandleNewsletterEmailFieldChange(e)}}/><button type='button' onClick={(e) => {footerHandleNewsletterSignUp(e)}}>Sign Up</button>
+            <form onSubmit={(e) => {footerHandleNewsletterSignUp(e)}}>
+            <input type='email' required name='footer-newsletter-email' className='footer' onChange={(e)=>{footerHandleNewsletterEmailFieldChange(e)}}/><button type='submit'>Sign Up</button>
+            </form>
           </div>
         </div>
       </div>
