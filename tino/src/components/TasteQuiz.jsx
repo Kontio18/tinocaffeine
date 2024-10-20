@@ -1,19 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as React from 'react'
-import {Link, Outlet} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { backendUrl } from './../config';
 
 import TasteQuizStyles from './../styles/TasteQuizStyles.css';
 import NavStyles from './../styles/NavStyles.css';
 import TasteQuizOne from './../images/taste-quiz/taste-quiz-1.jpg';
-
-import BlendOne from './../images/blends/1.jpg';
-import BlendTwo from './../images/blends/2.jpg';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
 
 export default function TasteQuiz(){
 
@@ -44,20 +36,20 @@ export default function TasteQuiz(){
       tangy: tangy,
     }))
     .then((res) => res.json())
-    .then((res) => {setTopTwoBlends(res)});
+    .then((res) => {setTopTwoBlends(res)})
   };
 
   const Top = () => {
-    if(topTwoBlends.length != 0){
+    if(topTwoBlends.length !== 0){
       let blendBoxes = [];
       topTwoBlends.forEach((blend, index) => {
         blendBoxes.push(
           <div key={index} className='y-split half'>
             <div className='blend-figure-cont'>
               <figure>
-          <Link to={{pathname: "/blend",search:"?blend="+blend.slug }}>
+                <Link to={{pathname: "/blend",search:"?blend="+blend.slug }}>
                   <h2>{blend.name}</h2>
-                  <img src={BlendOne}/>
+                  <img src={require('./../images/blends/' + blend.slug + '-1.jpg')} alt=''/>
                   <figcaption>
                     <p className='light'>{blend.description}</p>
                   </figcaption>
@@ -82,7 +74,7 @@ export default function TasteQuiz(){
     <div className='taste-quiz'>
       <div className='taste-quiz-cont y-split-parent'>
         <div className='y-split fifth taste-quiz-img-left-cont'>
-          <img src={TasteQuizOne} className='taste-quiz-left-img'/>
+          <img src={TasteQuizOne} className='taste-quiz-left-img' alt=''/>
         </div>
         <div className='y-split four-fifths'>
           <span className='inline'><h2>Taste Quiz</h2><h4>Find your top 2 blends</h4></span>
