@@ -158,7 +158,7 @@ app.get('/getRelatedBlends', (req, res) => {
     allBlends.forEach((item)=>{
 
       // be sure not to grab the blend itself
-      if(item.blend_id != req.query.blendId){
+      if(item.slug != req.query.slug){
 
         // this object is meant to record the differences between the user select preferences, and a given blend
         let blendOb = {};
@@ -227,24 +227,20 @@ app.get('/getBlends', (req,res) => {
 
 app.get('/getBlend', (req, res) => {
 
-  async function run(blendName){
-
-    console.log('blendName ',blendName);
+  async function run(blendSlug){
 
     // select the collection
     const collection = client.db('tino').collection('blends');
 
     // get the blend data as an array
-    let blends = await collection.find({name:blendName},{}).toArray();
-    let blend = blends[0];
-    console.log('blend ',blend);
+    let blend = await collection.findOne({ slug: blendSlug });
 
     // return the blend data
     res.send(blend);
   }
 
   // function is defined then called afterwards to allow async functions
-  run(req.query.blendName);
+  run(req.query.blend);
 });
 
 
