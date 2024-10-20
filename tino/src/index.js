@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -7,7 +7,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import tinoStore from './components/reducers/tinoStore';
 
 import App from './App';
-import cartReducer from './components/reducers/cartReducer';
 import Home from './routes/Home';
 import Catering from './routes/Catering';
 import Visit from './routes/Visit';
@@ -17,11 +16,6 @@ import Cart from './routes/Cart';
 
 import Order from './routes/Order';
 import About from './routes/About';
-
-tinoStore.dispatch({
-  type: 'ADD_TODO',
-  text: 'Read the docs'
-});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

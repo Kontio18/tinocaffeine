@@ -1,20 +1,15 @@
-import React, {useState, useEffect, Fragment} from 'react';
-import {Link, Outlet, useSearchParams, useParams} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import { backendUrl } from './../config';
 
-import axios from 'axios';
 import {truncateParagraph} from './../functions';
 import NavBar from './../components/NavBar';
 import TasteQuiz from './../components/TasteQuiz';
-import MeetTheTeam from './../components/MeetTheTeam';
 import NewsletterSignUp from './../components/NewsletterSignUp';
 import Map from './../components/Map';
 import Footer from './../components/Footer';
 
 import BlendsStyles from './../styles/BlendsStyles.css';
-
-import BlendOne from './../images/blends/1.jpg';
-import BlendTwo from './../images/blends/2.jpg';
 
 export default function Blends() {
   
@@ -25,11 +20,10 @@ const [blends, setBlends] = useState([]);
     .then((res) => setBlends(res))
   },[]);
 
-  const too = {pathname: "/blend", param1: "Par1" };
   const DisplayBlendsList = () => {
     let displayBlends = [];
 
-    blends.map((blend, index) => {
+    blends.forEach((blend, index) => {
       let blendImg = require('./../images/blends/'+blend.page_imgs[0]);
       displayBlends.push(
         <li className='mobile-y-split-parent y-split third' key={index*10}>
@@ -37,7 +31,7 @@ const [blends, setBlends] = useState([]);
           <div className='blend-cont'>
             <div className='overlay mobile-y-split third'>
               <div className='img-holder'>
-                <img src={blendImg}/>
+                <img src={blendImg} alt=''/>
               </div>
             </div>
             <div className='script underlay mobile-y-split two-thirds'>
@@ -52,7 +46,7 @@ const [blends, setBlends] = useState([]);
           </Link>
         </li>
       )
-      if((index+1)/3 == Math.floor((index+1)/3) && index > 0) { displayBlends.push(<br key={index*.1} className='disappears-on-mobile'/>) }else{ displayBlends.push(null) }
+      if((index+1)/3 === Math.floor((index+1)/3) && index > 0) { displayBlends.push(<br key={index*.1} className='disappears-on-mobile'/>) }else{ displayBlends.push(null) }
     })
     return displayBlends;
   }
