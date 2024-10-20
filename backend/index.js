@@ -91,10 +91,10 @@ app.get('/tasteQuiz', (req, res) => {
       queryTopTwoRegex = new RegExp(blendDiffsArray[0][0]+'|'+blendDiffsArray[1][0]);
 
       // find the top two blends in the database
-      let returnBlends = await client.db('tino').collection('blends').find({name: {$regex: queryTopTwoRegex}},{}).toArray();
+      let topTwoBlends = await client.db('tino').collection('blends').find({name: {$regex: queryTopTwoRegex}},{}).toArray();
    
       // return the top two blends
-      res.send(returnBlends);
+      res.send(topTwoBlends);
     }
 
     allBlends.forEach((item)=>{
