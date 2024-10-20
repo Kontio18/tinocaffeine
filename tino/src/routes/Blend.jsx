@@ -1,21 +1,17 @@
-import React, { useState, useEffect, useLayoutEffect, Fragment, componentDidMount } from 'react';
-import { Link, Outlet, useSearchParams, useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { useState, useLayoutEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { backendUrl } from './../config';
 
 import tinoStore from './../components/reducers/tinoStore';
 
 import NavBar from './../components/NavBar';
-import MeetTheTeam from './../components/MeetTheTeam';
 import NewsletterSignUp from './../components/NewsletterSignUp';
 import Map from './../components/Map';
 import Footer from './../components/Footer';
 
 import BlendStyles from './../styles/BlendStyles.css';
 
-import BlendOne from './../images/blends/1.jpg';
-import BlendTwo from './../images/blends/2.jpg';
-import BlendThree from './../images/blends/3.jpg';
+// import DefaultBlendImg from './../images/blends/1.jpg';
 import axios from 'axios';
 
 export default function Blend() {
@@ -23,21 +19,12 @@ export default function Blend() {
   const [quantity, setQuantity] = useState(0);
   const [cost, setCost] = useState(0);
   const [weight, setWeight] = useState('');
-  const [blends, setBlends] = useState([{}]);
   const [blend, setBlend] = useState({});
   
   const [relatedBlends, setRelatedBlends] = useState([]);
+  const [searchParams] = useSearchParams();
   
-  const equalityCheckShallow = (currentVal, previousVal) => {
-    let noUpdate = true;
-    Object.keys(currentVal).forEach(key => {
-      if (currentVal[key] !== previousVal[key]) {
-        noUpdate = false;
-      }
-    });
-    return noUpdate;
-  };
-  
+
   useLayoutEffect(() => {
     fetch(backendUrl+'/getRelatedBlends?' + new URLSearchParams({
       blendId: blend.blend_id,
@@ -50,9 +37,7 @@ export default function Blend() {
     }))
     .then((res) => res.json())
     .then((res) => {setRelatedBlends(res)});
-  },[]);
-
-  const [searchParams, setSearchParams] = useSearchParams();
+  },[blend.blend_id,blend.bitter,blend.vanillaLike,blend.fruity,blend.citrus,blend.mocha,blend.tangy,]);
 
   const blendName = searchParams.get('blend');  
 
@@ -69,16 +54,16 @@ export default function Blend() {
     }
     request();
   }
-  ,[]);
+  ,[blendName]);
 
   const BlendPictures = () => {
     
     let listOfBlendPictures = [];
 
-    if(blend.page_imgs != undefined){
+    if(blend.page_imgs !== undefined){
       blend.page_imgs.forEach((item, index) => {
         let blendImg = require('./../images/blends/'+item);
-        listOfBlendPictures = [...listOfBlendPictures, <li key={index}><img onClick={()=>{setActiveBlendImg(blendImg)}} src={blendImg}/></li>];
+        listOfBlendPictures = [...listOfBlendPictures, <li key={index}><img onClick={()=>{setActiveBlendImg(blendImg)}} src={blendImg} alt=''/></li>];
       })
       return (listOfBlendPictures);
     }
@@ -86,8 +71,8 @@ export default function Blend() {
 
   const DisplayBlendRates = () => {
     let blendRates = [];
-    if(blend.rates != undefined){
-      blend.rates.map((rate,index)=>{
+    if(blend.rates !== undefined){
+      blend.rates.forEach((rate,index)=>{
         blendRates.push(<option key={rate.id}>{rate.unit}</option>);
       })
       return(blendRates);
@@ -105,8 +90,12 @@ export default function Blend() {
   }
 
   useLayoutEffect(() => {
-    calculateCost();
-  },[weight, quantity]);
+    // calculate cost
+    if(blend.rates !== undefined && weight !== undefined){
+      let weightPrice = blend.rates.find(rate => rate.unit === weight).price;
+      setCost(weightPrice*quantity);
+    }
+  },[weight, quantity, blend.rates]);
 
   const addToCart = () => {
     tinoStore.dispatch({
@@ -125,25 +114,18 @@ export default function Blend() {
     })
   }
 
-  const calculateCost = () => {
-    if(blend.rates != undefined && weight != undefined){
-      let weightPrice = blend.rates.find(rate => rate.unit == weight).price;
-      setCost(weightPrice*quantity);
-    }
-  }
-
   const RelatedBlendsComponent = () => {
-    if(relatedBlends.length != 0){
+    if(relatedBlends.length !== 0){
       let blendBoxes = [];
       relatedBlends.forEach((item, index) => {
-  
+        var img = require('./../images/blends/'+item.page_imgs[0]);
         blendBoxes.push(
           <div key={item._id} className='y-split half'>
             <div className='blend-figure-cont'>
               <figure>
                 <Link to={{pathname: "/blend", search:"?blend="+item.name }}>
                   <h2>{item.name}</h2>
-                  <img src={BlendOne}/>
+                  <img src={img} alt=''/>
                   <figcaption>
                     <p className='light'>{item.description}</p>
                   </figcaption>
@@ -173,7 +155,7 @@ export default function Blend() {
           <div className='blend-imgs y-split half'>
             <div className='blend-imgs-wrapper'>
               <div className='img-holder blend-imgs-main-display-holder'>
-                <img src={activeBlendImg}/>
+                <img src={activeBlendImg} alt=''/>
               </div>
               <ul className='blend-imgs-list'>
                 <BlendPictures/>
