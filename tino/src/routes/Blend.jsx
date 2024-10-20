@@ -11,7 +11,7 @@ import Footer from './../components/Footer';
 
 import BlendStyles from './../styles/BlendStyles.css';
 
-// import DefaultBlendImg from './../images/blends/1.jpg';
+import DefaultBlendImg from './../images/blends/1.jpg';
 import axios from 'axios';
 
 export default function Blend() {
@@ -27,7 +27,7 @@ export default function Blend() {
 
   useLayoutEffect(() => {
     fetch(backendUrl+'/getRelatedBlends?' + new URLSearchParams({
-      blendId: blend.blend_id,
+      slug: blend.slug,
       bitter: blend.bitter,
       vanillaLike: blend.vanillaLike,
       fruity: blend.fruity,
@@ -37,16 +37,15 @@ export default function Blend() {
     }))
     .then((res) => res.json())
     .then((res) => {setRelatedBlends(res)});
-  },[blend.blend_id,blend.bitter,blend.vanillaLike,blend.fruity,blend.citrus,blend.mocha,blend.tangy,]);
+  },[blend]);
 
-  const blendName = searchParams.get('blend');  
-
-  const [activeBlendImg, setActiveBlendImg] = useState(require('./../images/blends/'+blendName.toLowerCase()+'-1.jpg'));
+  const blendSlug = searchParams.get('blend');  
+  const [activeBlendImg, setActiveBlendImg] = useState(DefaultBlendImg);
   
   useLayoutEffect(() => {
    function request() {
-      const fetchdata = async () => await axios.get(backendUrl+'/getBlend?blendName='+blendName)
-      const result =  fetchdata()
+      const fetchdata = async () => await axios.get(backendUrl+'/getBlend?blend='+blendSlug);
+      const result = fetchdata();
       result.then(res=>{
         setBlend(res.data);
         setWeight(res.data.rates[0].unit);
@@ -54,7 +53,15 @@ export default function Blend() {
     }
     request();
   }
-  ,[blendName]);
+  ,[blendSlug]);
+
+  useLayoutEffect(()=>{
+    if(blend.slug){
+      setActiveBlendImg(require('./../images/blends/'+blend.slug+'-1.jpg'));
+    }else{
+      setActiveBlendImg(DefaultBlendImg);
+    }
+  },[blend.slug]);
 
   const BlendPictures = () => {
     
@@ -117,17 +124,17 @@ export default function Blend() {
   const RelatedBlendsComponent = () => {
     if(relatedBlends.length !== 0){
       let blendBoxes = [];
-      relatedBlends.forEach((item, index) => {
-        var img = require('./../images/blends/'+item.page_imgs[0]);
+      relatedBlends.forEach((blend, index) => {
+        var img = require('./../images/blends/'+blend.page_imgs[0]);
         blendBoxes.push(
-          <div key={item._id} className='y-split half'>
+          <div key={blend._id} className='y-split half'>
             <div className='blend-figure-cont'>
               <figure>
-                <Link to={{pathname: "/blend", search:"?blend="+item.name }}>
-                  <h2>{item.name}</h2>
+                <Link to={{pathname: "/blend", search:"?blend="+blend.slug }}>
+                  <h2>{blend.name}</h2>
                   <img src={img} alt=''/>
                   <figcaption>
-                    <p className='light'>{item.description}</p>
+                    <p className='light'>{blend.description}</p>
                   </figcaption>
                 </Link>
               </figure>

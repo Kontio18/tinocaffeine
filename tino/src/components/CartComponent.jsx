@@ -74,8 +74,8 @@ export default function CartComponent(){
           {
             cartItems.map((item, index)=>{
               return (<li key={index} className='y-split-parent mobile-y-split-parent'>
-                <div className='y-split mobile-y-split quarter blend-cart-img'><Link to={{pathname: "/blend", search:"?blend="+item.name }}><img src={CartBlendOne} className='blend-cart-img'/></Link></div>
-                <div className='y-split mobile-y-split fifth cart-item-name'><h4><Link to={{pathname: "/blend", search:"?blend="+item.name }}>{item.name}</Link></h4></div>
+                <div className='y-split mobile-y-split quarter blend-cart-img'><Link to={{pathname: "/blend", search:"?blend="+item.slug }}><img src={CartBlendOne} className='blend-cart-img'/></Link></div>
+                <div className='y-split mobile-y-split fifth cart-item-name'><h4><Link to={{pathname: "/blend", search:"?blend="+item.slug }}>{item.name}</Link></h4></div>
                 <div className='y-split mobile-y-split sixth cart-item-unit'><h6>Unit:<br/><span className='light-text'>{item.weight}</span></h6></div>
                 <div className='y-split mobile-y-split quarter cart-item-quantity'>
                   <h6>Quantity:<br/></h6>

@@ -50,16 +50,16 @@ export default function TasteQuiz(){
   const Top = () => {
     if(topTwoBlends.length != 0){
       let blendBoxes = [];
-      topTwoBlends.forEach((item, index) => {
+      topTwoBlends.forEach((blend, index) => {
         blendBoxes.push(
           <div key={index} className='y-split half'>
             <div className='blend-figure-cont'>
               <figure>
-          <Link to={{pathname: "/blend",search:"?blend="+item.name }}>
-                  <h2>{item.name}</h2>
+          <Link to={{pathname: "/blend",search:"?blend="+blend.slug }}>
+                  <h2>{blend.name}</h2>
                   <img src={BlendOne}/>
                   <figcaption>
-                    <p className='light'>{item.description}</p>
+                    <p className='light'>{blend.description}</p>
                   </figcaption>
                 </Link>
               </figure>

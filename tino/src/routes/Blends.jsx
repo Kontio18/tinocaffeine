@@ -27,7 +27,7 @@ const [blends, setBlends] = useState([]);
       let blendImg = require('./../images/blends/'+blend.page_imgs[0]);
       displayBlends.push(
         <li className='mobile-y-split-parent y-split third' key={index*10}>
-          <Link to={{pathname: "/blend",search:"?blend="+blend.name }}>
+          <Link to={{pathname: "/blend",search:"?blend="+blend.slug }}>
           <div className='blend-cont'>
             <div className='overlay mobile-y-split third'>
               <div className='img-holder'>
