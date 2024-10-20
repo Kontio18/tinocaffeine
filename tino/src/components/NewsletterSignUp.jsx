@@ -18,16 +18,21 @@ export default function NewsletterSignUp(){
       address: newsletterEmailAddress,
     }))
     .then((res) => {
-      setNewsletterEmailAddressSignUpHeader('Thanks For Signing Up!');
+      res.text().then((message)=>{
+        setNewsletterEmailAddressSignUpHeader(message);
+      })
     });
     setNewsletterEmailAddress('');
+    e.target.reset();
   }
 
   return (
     <div className='solo-newsletter-sign-up' style={{ backgroundImage: "url('/images/newsletter/background.jpg')"}}>
       <div className='newsletter-sign-up-container negative'>
         <h3>{newsletterEmailAddressSignUpHeader}</h3>
-        <input type='text' name='footer-newsletter-email' onChange={(e)=>{handleNewsletterEmailFieldChange(e)}}/><button type='button' onClick={(e) => {handleNewsletterSignUp(e)}}>Sign Up</button>
+        <form onSubmit={(e) => {handleNewsletterSignUp(e)}}>
+          <input type='email' required name='footer-newsletter-email' onChange={(e)=>{handleNewsletterEmailFieldChange(e)}}/><button type='submit'>Sign Up</button>
+        </form>
       </div>
     </div>
   );
