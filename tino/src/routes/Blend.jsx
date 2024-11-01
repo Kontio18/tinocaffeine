@@ -108,7 +108,7 @@ export default function Blend() {
     tinoStore.dispatch({
       type: 'ADD_TO_CART',
       quan: quantity,
-      item: {name:blend.name, weight: weight, count: quantity, price: cost/quantity}
+      item: {name:blend.name,slug:blend.slug, weight: weight, count: quantity, price: cost/quantity}
     })
     setQuantity(0);
   }
